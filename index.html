@@ -24,7 +24,7 @@
   async function fetchRepos() {
     try {
       // Fetch data from GitHub API (sorted by most recently updated)
-      const response = await fetch(`https://github.com{username}/repos?sort=updated`);
+      const response = await fetch('https://github.com/BDragonBlade?tab=repositories');
       
       if (!response.ok) {
         throw new Error('Failed to fetch repositories');
