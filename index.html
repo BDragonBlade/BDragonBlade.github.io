@@ -7,5 +7,52 @@
     <body>
 
         <h1>Joshua D. Hardy</h1>
+
+        <h2>About</h2>
+            <p>
+                I am a graduate of Augusta University with a B.S. in Computer Science. I have been coding since 2016, and am constantly trying to learn more.
+            </p>
     </body>
+     <!-- Container where the repository list will appear -->
+<div id="github-repos">Loading repositories...</div>
+
+<script>
+  // Replace 'YOUR_USERNAME' with your actual GitHub username
+  const username = 'BDragonBlade'; 
+  const container = document.getElementById('github-repos');
+
+  async function fetchRepos() {
+    try {
+      // Fetch data from GitHub API (sorted by most recently updated)
+      const response = await fetch(`https://github.com{username}/repos?sort=updated`);
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch repositories');
+      }
+      
+      const repos = await response.json();
+      container.innerHTML = ''; // Clear loading text
+
+      // Loop through the repositories and build the HTML list
+      repos.forEach(repo => {
+        // Skip forks if you only want your original projects
+        if (repo.fork) return; 
+
+        const repoElement = document.createElement('div');
+        repoElement.style.margin = '15px 0';
+        repoElement.innerHTML = `
+          <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+          <p>${repo.description || 'No description provided.'}</p>
+          <span>⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</span>
+        `;
+        container.appendChild(repoElement);
+      });
+    } catch (error) {
+      container.innerHTML = '<p>Error loading repositories. Please try again later.</p>';
+      console.error(error);
+    }
+  }
+
+  fetchRepos();
+</script>
 </html>
