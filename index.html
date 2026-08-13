@@ -24,42 +24,42 @@
 
         <h2>About</h2>
             <p>
-                I am a graduate of Augusta University with a B.S. in Computer Science. I have been coding since 2016, and am constantly trying to learn more.
+                I am a studentof Augusta University in progress of a B.S. in Computer Science. I have been coding since 2016, and am constantly trying to learn more.
             </p>
     </div>
         
             
-  <div id="repo-list" class="w3-twothird">Loading repositories...</div>
+  <div id="repo-list" class="w3-twothird">Loading repositories...
     <h3>Projects</h3>
             <p>
                 Here are some of the projects I have worked on:
             </p>
+    </div>
+    <script>
+      const username = "BDragonBlade";
+      const repoContainer = document.getElementById("repo-list");
 
-<script>
-  const username = "BDragonBlade";
-  const repoContainer = document.getElementById("repo-list");
-
-  fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
-    .then(response => response.json())
-    .then(repos => {
-      repoContainer.innerHTML = ""; // Clear loading text
-      repos.forEach(repo => {
-        // Create an HTML card for each repository
-        const repoCard = `
-          <div class="repo-card" style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
-            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-            <p>${repo.description || "No description provided."}</p>
-            <span>⭐ ${repo.language || "Unknown"} | 🍴 ${repo.forks_count}</span>
-          </div>
-        `;
-        repoContainer.innerHTML += repoCard;
-      });
-    })
-    .catch(error => {
-      repoContainer.innerHTML = "Failed to load repositories.";
-      console.error(error);
-    });
-</script>
+      fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
+        .then(response => response.json())
+        .then(repos => {
+          repoContainer.innerHTML = ""; // Clear loading text
+          repos.forEach(repo => {
+            // Create an HTML card for each repository
+            const repoCard = `
+              <div class="repo-card" style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
+                <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+                <p>${repo.description || "No description provided."}</p>
+                <span>⭐ ${repo.language || "Unknown"} | 🍴 ${repo.forks_count}</span>
+              </div>
+            `;
+            repoContainer.innerHTML += repoCard;
+          });
+        })
+        .catch(error => {
+          repoContainer.innerHTML = "Failed to load repositories.";
+          console.error(error);
+        });
+    </script>
   </div>
         
     </body>
