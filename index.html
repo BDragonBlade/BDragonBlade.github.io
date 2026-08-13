@@ -20,6 +20,35 @@
                 Here are some of the projects I have worked on:
             </p>
             
+        <div id="repo-list">Loading repositories...</div>
+
+<script>
+  const username = "BDragonBlade"; // Replace with your username
+  const repoContainer = document.getElementById("repo-list");
+
+  fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
+    .then(response => response.json())
+    .then(repos => {
+      repoContainer.innerHTML = ""; // Clear loading text
+      repos.forEach(repo => {
+        // Create an HTML card for each repository
+        const repoCard = `
+          <div class="repo-card" style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
+            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+            <p>${repo.description || "No description provided."}</p>
+            <span>⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</span>
+          </div>
+        `;
+        repoContainer.innerHTML += repoCard;
+      });
+    })
+    .catch(error => {
+      repoContainer.innerHTML = "Failed to load repositories.";
+      console.error(error);
+    });
+</script>
+
+        
     </body>
 
 </html>
