@@ -11,65 +11,78 @@
         html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         </style>
     </head>
-    <body class="w3-grey">
-      <div class="w3-content w3-margin-top" style="max-width:1400px;">
+<body class="w3-grey">
+  <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-  
-    <!-- Left Column -->
-    <div class="w3-third">
-      <div class="w3-white w3-text-grey w3-card-4">
-        <h1>Joshua D. Hardy</h1>
-        <div class="w3-container">
-          <!-- <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>N/A</p> -->
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Augusta, GA</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>jdhardy27@gmail.com</p>
-          <!-- <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>N/A</p> -->
-          <hr>
+   <!-- The Grid -->
+    <div class="w3-row-padding">
+    
+      <!-- Left Column -->
+      <div class="w3-third">
+        <div class="w3-white w3-text-black w3-card-4">
+          <h1>Joshua D. Hardy</h1>
+          <div class="w3-container">
+            <!-- <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>N/A</p> -->
+            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Augusta, GA</p>
+            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>jdhardy27@gmail.com</p>
+            <!-- <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>N/A</p> -->
+            <hr>
 
-        <h2>About</h2>
-            <p>
-                I am a studentof Augusta University in progress of a B.S. in Computer Science. I have been coding since 2016, and am constantly trying to learn more.
-            </p>
-        </div>      
+          <h2>About</h2>
+              <p>
+                  I am a studentof Augusta University in progress of a B.S. in Computer Science. I have been coding since 2016, and am constantly trying to learn more.
+              </p>
+          </div>      
+        </div>
+      </div>
+        
+      <div class="w3-twothird">   
+        <div class="w3-white w3-text-black w3-card-4">
+          <button class="w3-button w3-block w3-teal" onclick="toggleSection('projects')">Projects</button>
+          <button class="w3-button w3-block w3-teal" onclick="toggleSection('work-experience')">Work Experience</button>
+          <div id = "projects">
+            <h3>Projects</h3>
+                <p>
+                    Here are some of the projects I have worked on:
+                </p>
+            <div id="repo-list">Loading repositories...</div>
+              <script>
+                const username = "BDragonBlade";
+                const repoContainer = document.getElementById("repo-list");
+
+                fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
+                  .then(response => response.json())
+                  .then(repos => {
+                    repoContainer.innerHTML = ""; // Clear loading text
+                    repos.forEach(repo => {
+                      // Create an HTML card for each repository
+                      const repoCard = `
+                        <div class="repo-card" style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
+                          <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+                          <p>${repo.description || "No description provided."}</p>
+                          <span>⭐ ${repo.language || "Unknown"} | 🍴 ${repo.forks_count}</span>
+                        </div>
+                      `;
+                      repoContainer.innerHTML += repoCard;
+                    });
+                  })
+                  .catch(error => {
+                    repoContainer.innerHTML = "Failed to load repositories.";
+                    console.error(error);
+                  });
+            </script>
+          </div>
+          <div id = "work-experience">
+            <h3>Work Experience</h3>
+            <p></p>
+
+          </div>
+        </div>
       </div>
     </div>
-        
-  <div class="w3-twothird">    
-  
-    <h3>Projects</h3>
-            <p>
-                Here are some of the projects I have worked on:
-            </p>
-    <div id="repo-list">Loading repositories...</div>
-    <script>
-      const username = "BDragonBlade";
-      const repoContainer = document.getElementById("repo-list");
-
-      fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
-        .then(response => response.json())
-        .then(repos => {
-          repoContainer.innerHTML = ""; // Clear loading text
-          repos.forEach(repo => {
-            // Create an HTML card for each repository
-            const repoCard = `
-              <div class="repo-card" style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
-                <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-                <p>${repo.description || "No description provided."}</p>
-                <span>⭐ ${repo.language || "Unknown"} | 🍴 ${repo.forks_count}</span>
-              </div>
-            `;
-            repoContainer.innerHTML += repoCard;
-          });
-        })
-        .catch(error => {
-          repoContainer.innerHTML = "Failed to load repositories.";
-          console.error(error);
-        });
-    </script>
   </div>
         
-    </body>
+</body>
 
 </html>
+
