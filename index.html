@@ -12,7 +12,8 @@
         </style>
     </head>
     <body class="w3-light-grey">
-
+      <div class="w3-content w3-margin-top" style="max-width:1400px;">
+        <div class="w3-row-padding"></div>
         <h1>Joshua D. Hardy</h1>
 
         <h2>About</h2>
@@ -30,7 +31,7 @@
         <div id="repo-list">Loading repositories...</div>
 
 <script>
-  const username = "BDragonBlade"; // Replace with your username
+  const username = "BDragonBlade";
   const repoContainer = document.getElementById("repo-list");
 
   fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
@@ -43,7 +44,7 @@
           <div class="repo-card" style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
             <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
             <p>${repo.description || "No description provided."}</p>
-            <span>⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</span>
+            <span>⭐ ${repo.language || "Unknown"} | 🍴 ${repo.forks_count}</span>
           </div>
         `;
         repoContainer.innerHTML += repoCard;
