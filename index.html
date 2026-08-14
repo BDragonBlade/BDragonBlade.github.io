@@ -40,23 +40,7 @@
         <div class="w3-white w3-text-black w3-card-4">
           <button class="w3-button w3-block w3-teal" onclick="toggleSection('projects')">Projects</button>
           <button class="w3-button w3-block w3-teal" onclick="toggleSection('work-experience')">Work Experience</button>
-            <script>
-              function toggleSection(sectionId) {
-                const sections = ['projects', 'work-experience'];
-                sections.forEach(id => {
-                  const section = document.getElementById(id);
-                  if (id === sectionId) {
-                    section.style.display = section.style.display === 'none' ? 'block' : 'none';
-                  } else {
-                    section.style.display = 'none';
-                  }
-                });
-              }
 
-              // Initialize sections to be hidden
-              document.getElementById('projects').style.display = 'none';
-              document.getElementById('work-experience').style.display = 'none';
-            </script>
 
           <div id = "projects">
             <h3>Projects</h3>
@@ -92,8 +76,70 @@
           </div>
           <div id = "work-experience">
             <h3>Work Experience</h3>
-            <p></p>
-
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>Parts Sales Manager | AutoZone</b></h5>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 2025- <span class="w3-tag w3-teal w3-round">Current</span></h6>
+              <ul>
+                <li>Diagnosed customer vehicle issues by researching manufacturer specifications and electronic parts databases toidentify compatible replacement components.</li>
+                <li>Utilized inventory management, point-of-sale, and database systems to locate, verify, and order automotive parts across multiple warehouse locations.</li>
+                <li>Utilized ServiceNow to create, update, and monitor support tickets for store technology and operational issues, ensuring accurate documentation and timely resolution through collaboration with internal IT support teams.</li>
+                <li>Resolved customer issues by analyzing technical documentation, warranty information, and product specifications.</li>
+                <li>Maintained accurate inventory records through database updates, stock reconciliation, and detailed data entry.</li>
+                <li>Trained team members on software systems, inventory lookup procedures, and customer service best practices.</li>
+                <li>Managed multiple customer requests simultaneously while maintaining high standards of accuracy,organization, and efficiency.</li>
+              </ul>
+              <hr>
+            </div>
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>Cashier | Kroger</b></h5>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>August 2024 - February 2025</h6>
+              <ul>
+                <li>Operated computerized point-of-sale systems while maintaining high transaction accuracy.</li>
+                <li>Assisted customers with digital rewards accounts, payment systems, and issue resolution.</li>
+                <li>Maintained data accuracy while processing high transaction volumes in a fast-paced retail environment.</li>
+                <li>Resolved customer concerns while following established operational procedures.</li>
+              </ul>
+              <hr>
+            </div>
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>Bowling Counter Attendant | Stars and Strikes</b></h5>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>March 2024 - July 2024</h6>
+              <ul>
+                <li>Managed customer reservations, lane assignments, and event scheduling using computerized reservation software.</li>
+                <li>Troubleshot scoring system and equipment issues to minimize service interruptions.</li>
+                <li>Processed customer transactions while maintaining accurate scheduling and reservation records</li>
+                <li>Delivered technical assistance and exceptional customer service in a fast-paced environment.</li>
+              </ul>
+              <hr>
+            </div>
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>Express Service Technician | Gerald Jones Honda</b></h5>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2023 - February 2024</h6>
+              <ul>
+                <li>Diagnosed customer vehicle issues by researching manufacturer specifications and electronic parts databases toidentify compatible replacement components.</li>
+                <li>Utilized inventory management, point-of-sale, and database systems to locate, verify, and order automotive parts across multiple warehouse locations.</li>
+                <li>Utilized ServiceNow to create, update, and monitor support tickets for store technology and operational issues, ensuring accurate documentation and timely resolution through collaboration with internal IT support teams.</li>
+                <li>Resolved customer issues by analyzing technical documentation, warranty information, and product specifications.</li>
+                <li>Maintained accurate inventory records through database updates, stock reconciliation, and detailed data entry.</li>
+                <li>Trained team members on software systems, inventory lookup procedures, and customer service best practices.</li>
+                <li>Managed multiple customer requests simultaneously while maintaining high standards of accuracy,organization, and efficiency.</li>
+              </ul>
+              <hr>
+            </div>
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>Retail Service Specialist | O'Reilly Auto Parts</b></h5>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>February 2022 - April 2023</h6>
+              <ul>
+                <li>Diagnosed customer vehicle issues by researching manufacturer specifications and electronic parts databases toidentify compatible replacement components.</li>
+                <li>Utilized inventory management, point-of-sale, and database systems to locate, verify, and order automotive parts across multiple warehouse locations.</li>
+                <li>Utilized ServiceNow to create, update, and monitor support tickets for store technology and operational issues, ensuring accurate documentation and timely resolution through collaboration with internal IT support teams.</li>
+                <li>Resolved customer issues by analyzing technical documentation, warranty information, and product specifications.</li>
+                <li>Maintained accurate inventory records through database updates, stock reconciliation, and detailed data entry.</li>
+                <li>Trained team members on software systems, inventory lookup procedures, and customer service best practices.</li>
+                <li>Managed multiple customer requests simultaneously while maintaining high standards of accuracy,organization, and efficiency.</li>
+              </ul>
+              <hr>
+            </div>
           </div>
         </div>
       </div>
@@ -101,6 +147,24 @@
   </div>
         
 </body>
+
+            <script>
+              function toggleSection(sectionId) {
+                const sections = ['projects', 'work-experience'];
+                sections.forEach(id => {
+                  const section = document.getElementById(id);
+                  if (id === sectionId) {
+                    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+                  } else {
+                    section.style.display = 'none';
+                  }
+                });
+              }
+
+              // Initialize sections to be hidden
+              document.getElementById('projects').style.display = 'none';
+              document.getElementById('work-experience').style.display = 'none';
+            </script>
 
 </html>
 
